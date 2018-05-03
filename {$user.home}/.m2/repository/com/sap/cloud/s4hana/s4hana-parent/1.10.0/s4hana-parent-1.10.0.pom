@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>S/4HANA - Parent POM</name>
+    <description>Parent POM for S/4HANA modules.</description>
+
+    <artifactId>s4hana-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>com.sap.cloud.s4hana</groupId>
+        <artifactId>sdk-parent</artifactId>
+        <version>1.10.0</version>
+    </parent>
+
+    <url>https://www.sap.com/s4sdk</url>
+
+    <organization>
+        <name>SAP SE</name>
+        <url>https://www.sap.com</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>SAP DEVELOPER LICENSE AGREEMENT</name>
+            <url>https://tools.hana.ondemand.com/developer-license-3_1.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>SAP</name>
+            <email>s4sdk@sap.com</email>
+            <organization>SAP SE</organization>
+            <organizationUrl>https://www.sap.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection/>
+        <url/>
+    </scm>
+
+    <properties>
+        <project.rootdir>${project.basedir}/../../</project.rootdir>
+    </properties>
+
+    <modules>
+        <module>s4hana-all</module>
+
+        <module>core</module>
+        <module>connectivity</module>
+
+        <module>datamodel</module>
+        <module>datamodel-odata</module>
+        <module>datamodel-bapi</module>
+
+        <module>fluent-result</module>
+        <module>rfc</module>
+        <module>signing</module>
+
+        <module>testutil</module>
+        <module>testutil-resources</module>
+
+        <!-- SAP-internal modules -->
+        <module>authorizations</module>
+        <module>hierarchy</module>
+        <module>odata</module>
+        <module>plainstring</module>
+        <module>sql</module>
+        <module>tables</module>
+        <module>userprofile</module>
+        <module>tests</module>
+    </modules>
+</project>

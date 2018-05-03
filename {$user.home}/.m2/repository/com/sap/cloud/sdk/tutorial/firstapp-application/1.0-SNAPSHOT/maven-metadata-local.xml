@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.sap.cloud.sdk.tutorial</groupId>
+  <artifactId>firstapp-application</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <localCopy>true</localCopy>
+    </snapshot>
+    <lastUpdated>20180502082913</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <classifier>classes</classifier>
+        <extension>jar</extension>
+        <value>1.0-SNAPSHOT</value>
+        <updated>20180502082913</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>war</extension>
+        <value>1.0-SNAPSHOT</value>
+        <updated>20180502082913</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0-SNAPSHOT</value>
+        <updated>20180502082913</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

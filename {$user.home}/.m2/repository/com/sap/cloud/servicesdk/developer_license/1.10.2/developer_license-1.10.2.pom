@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.sap.cloud.servicesdk.prov</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.10.2</version>
+		<relativePath>../parent/pom.xml</relativePath>
+	</parent>
+
+	<groupId>com.sap.cloud.servicesdk</groupId>
+	<artifactId>developer_license</artifactId>
+
+	<name>Developer License for Cloud SDK</name>
+	<description>SAP Cloud Platform SDK for service development</description>
+	<url>http://www.sap.com</url>
+	<scm>
+		<connection />
+		<url />
+	</scm>
+	<developers>
+		<developer>
+			<name>SAP SE</name>
+			<organization>SAP SE</organization>
+			<organizationUrl>http://www.sap.com</organizationUrl>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>SAP DEVELOPER LICENSE AGREEMENT</name>
+			<url>https://tools.hana.ondemand.com/developer-license-3_1.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>empty-javadoc-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<classifier>javadoc</classifier>
+							<forceCreation>true</forceCreation>
+							<includePom>true</includePom>
+							<includes>
+								<include>README</include>
+							</includes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>empty-javadoc-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<classifier>javadoc</classifier>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<organization>
+		<name>SAP</name>
+	</organization>
+</project>

@@ -1,0 +1,2 @@
+"https://my300475-api.s4hana.ondemand.com/sap/opu/odata/sap/API_BUSINESS_PARTNER/$metadata", "hystrix-com.sap.cloud.sdk.tutorial.GetBusinessPartnersCommand#t=#u=-1"
+"https://my300475-api.s4hana.ondemand.com/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartner", "hystrix-com.sap.cloud.sdk.tutorial.GetBusinessPartnersCommand#t=#u=-1"

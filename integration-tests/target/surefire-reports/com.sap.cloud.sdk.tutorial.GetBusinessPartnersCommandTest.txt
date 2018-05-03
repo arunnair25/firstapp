@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.sap.cloud.sdk.tutorial.GetBusinessPartnersCommandTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.196 s - in com.sap.cloud.sdk.tutorial.GetBusinessPartnersCommandTest

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>S/4HANA - Data Model - OData API</name>
+    <description>Generated classes of the S/4HANA OData Virtual Data Model.</description>
+
+    <artifactId>odata-api</artifactId>
+
+    <parent>
+        <artifactId>odata-parent</artifactId>
+        <groupId>com.sap.cloud.s4hana.datamodel</groupId>
+        <version>1.10.0</version>
+    </parent>
+
+    <url>https://www.sap.com/s4sdk</url>
+
+    <organization>
+        <name>SAP SE</name>
+        <url>https://www.sap.com</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>SAP DEVELOPER LICENSE AGREEMENT</name>
+            <url>https://tools.hana.ondemand.com/developer-license-3_1.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>SAP</name>
+            <email>s4sdk@sap.com</email>
+            <organization>SAP SE</organization>
+            <organizationUrl>https://www.sap.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection/>
+        <url/>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana</groupId>
+            <artifactId>connectivity</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana</groupId>
+            <artifactId>fluent-result</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.datamodel</groupId>
+            <artifactId>odata-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sap.cloud.servicesdk</groupId>
+            <artifactId>odatav2-connectivity</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sap.cloud.s4hana</groupId>
+                    <artifactId>fluent-result</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+                    <artifactId>connectivity</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sap.cloud.servicesdk</groupId>
+            <artifactId>odata-v2-lib</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- scope "provided" -->
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>net.revelc.code</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>**/datamodel/odata/namespaces/**/*.java</exclude>
+                        <exclude>**/datamodel/odata/services/*.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

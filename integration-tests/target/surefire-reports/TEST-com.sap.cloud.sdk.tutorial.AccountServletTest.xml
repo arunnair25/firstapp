@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.sap.cloud.sdk.tutorial.AccountServletTest" time="15.637" tests="1" errors="0" skipped="0" failures="1">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_121\jre\bin"/>
+    <property name="java.vm.version" value="25.121-b13"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\firstapp"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\firstapp"/>
+    <property name="java.runtime.version" value="1.8.0_121-b13"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_121\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\I038900\AppData\Local\Temp\"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Users\I038900\Desktop\Technical Material\Maven\apache-maven-3.5.0-bin\apache-maven-3.5.0\bin\..\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_121\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\I038900\Downloads\geckodriver-v0.15.0-win32;C:\Program Files\Git\cmd;C:\Users\I038900\Desktop\Technical Material\Maven\apache-maven-3.5.0-bin\apache-maven-3.5.0\bin;C:\Program Files\Cloud Foundry;C:\Program Files\nodejs\;C:\Users\I038900\AppData\Local\Microsoft\WindowsApps;C:\Users\I038900\AppData\Local\GitHubDesktop\bin;&quot;C:\Program Files\nodejs&quot;;."/>
+    <property name="maven.conf" value="C:\Users\I038900\Desktop\Technical Material\Maven\apache-maven-3.5.0-bin\apache-maven-3.5.0\bin\../conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Users\I038900\Desktop\Technical Material\Maven\apache-maven-3.5.0-bin\apache-maven-3.5.0\bin\..\lib\jansi-native\windows64"/>
+    <property name="user.home" value="C:\Users\I038900"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="user.name" value="I038900"/>
+    <property name="java.class.path" value="C:\Users\I038900\Desktop\Technical Material\Maven\apache-maven-3.5.0-bin\apache-maven-3.5.0\bin\..\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_121\jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="en"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_121"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_121\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_121\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_121\jre\classes"/>
+    <property name="sun.stderr.encoding" value="cp437"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="C:\Users\I038900\Desktop\Technical Material\Maven\apache-maven-3.5.0-bin\apache-maven-3.5.0\bin\.."/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.stdout.encoding" value="cp437"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase name="testService" classname="com.sap.cloud.sdk.tutorial.AccountServletTest" time="5.691">
+    <failure message="1 expectation failed.&#10;JSON path $ doesn&apos;t match.&#10;Expected: a collection with size a value greater than &lt;0&gt;&#10;  Actual: []&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+1 expectation failed.
+JSON path $ doesn't match.
+Expected: a collection with size a value greater than <0>
+  Actual: []
+
+	at com.sap.cloud.sdk.tutorial.AccountServletTest.testService(AccountServletTest.java:62)
+]]></failure>
+    <system-err><![CDATA[May 02, 2018 1:59:27 PM org.apache.tomee.embedded.Container start
+INFO: Starting TomEE from: C:\firstapp\integration-tests\target\arquillian-working-dir\1\arquillian-apache-tomee
+May 02, 2018 1:59:27 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-bio-63325"]
+May 02, 2018 1:59:27 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+May 02, 2018 1:59:27 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.81
+May 02, 2018 1:59:27 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-bio-63325"]
+May 02, 2018 1:59:28 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.jdbc.datasource-creator=org.apache.tomee.jdbc.TomEEDataSourceCreator'
+May 02, 2018 1:59:28 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+May 02, 2018 1:59:28 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: OpenEJB http://tomee.apache.org/
+May 02, 2018 1:59:28 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Startup: Wed May 02 13:59:28 IST 2018
+May 02, 2018 1:59:28 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Copyright 1999-2015 (C) Apache OpenEJB/TomEE Project, All Rights Reserved.
+May 02, 2018 1:59:28 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Version: 4.7.5
+May 02, 2018 1:59:28 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build date: 20170927
+May 02, 2018 1:59:28 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: Build time: 12:02
+May 02, 2018 1:59:28 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: ********************************************************************************
+May 02, 2018 1:59:28 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.home = C:\firstapp\integration-tests\target\arquillian-working-dir\1\arquillian-apache-tomee
+May 02, 2018 1:59:28 PM org.apache.openejb.OpenEJB$Instance <init>
+INFO: openejb.base = C:\firstapp\integration-tests\target\arquillian-working-dir\1\arquillian-apache-tomee
+May 02, 2018 1:59:28 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Created new singletonService org.apache.openejb.cdi.ThreadSingletonServiceImpl@15844237
+May 02, 2018 1:59:28 PM org.apache.openejb.cdi.CdiBuilder initializeOWB
+INFO: Succeeded in installing singleton service
+May 02, 2018 1:59:29 PM org.apache.openejb.config.ConfigurationFactory init
+INFO: openejb configuration file is 'C:\firstapp\integration-tests\target\arquillian-working-dir\1\arquillian-apache-tomee\conf\openejb.xml'
+May 02, 2018 1:59:29 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Tomcat Security Service, type=SecurityService, provider-id=Tomcat Security Service)
+May 02, 2018 1:59:29 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Transaction Manager, type=TransactionManager, provider-id=Default Transaction Manager)
+May 02, 2018 1:59:29 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.system.apps=false'
+May 02, 2018 1:59:29 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.deployments.classpath=false'
+May 02, 2018 1:59:29 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating TransactionManager(id=Default Transaction Manager)
+May 02, 2018 1:59:29 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating SecurityService(id=Tomcat Security Service)
+May 02, 2018 1:59:29 PM org.apache.openejb.util.OptionsLog info
+INFO: Using 'openejb.servicemanager.enabled=false'
+May 02, 2018 1:59:30 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully invalidated 0 entries in 0 caches.
+May 02, 2018 1:59:30 PM com.netflix.config.sources.URLConfigurationSource <init>
+WARNING: No URLs will be polled as dynamic configuration sources.
+May 02, 2018 1:59:30 PM com.netflix.config.sources.URLConfigurationSource <init>
+INFO: To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+May 02, 2018 1:59:31 PM org.apache.openejb.util.JarExtractor extract
+INFO: Extracting jar: C:\firstapp\integration-tests\target\arquillian-working-dir\1\arquillian-tomee-app-working-dir\0\05e4d392-d0e9-43b7-9723-782021b925f2.war
+May 02, 2018 1:59:31 PM org.apache.openejb.util.JarExtractor extract
+INFO: Extracted path: C:\firstapp\integration-tests\target\arquillian-working-dir\1\arquillian-tomee-app-working-dir\0\05e4d392-d0e9-43b7-9723-782021b925f2
+May 02, 2018 1:59:31 PM org.apache.tomee.catalina.TomcatWebAppBuilder deployWebApps
+INFO: using default host: localhost
+May 02, 2018 1:59:31 PM org.apache.tomee.catalina.TomcatWebAppBuilder init
+INFO: ------------------------- localhost -> /05e4d392-d0e9-43b7-9723-782021b925f2
+May 02, 2018 1:59:32 PM org.apache.openejb.config.ConfigurationFactory configureApplication
+INFO: Configuring enterprise application: C:\firstapp\integration-tests\target\arquillian-working-dir\1\arquillian-tomee-app-working-dir\0\05e4d392-d0e9-43b7-9723-782021b925f2
+May 02, 2018 1:59:33 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully invalidated 0 entries in 0 caches.
+May 02, 2018 1:59:33 PM com.netflix.config.sources.URLConfigurationSource <init>
+WARNING: No URLs will be polled as dynamic configuration sources.
+May 02, 2018 1:59:33 PM com.netflix.config.sources.URLConfigurationSource <init>
+INFO: To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+May 02, 2018 1:59:33 PM org.apache.openejb.config.ConfigurationFactory configureService
+INFO: Configuring Service(id=Default Managed Container, type=Container, provider-id=Default Managed Container)
+May 02, 2018 1:59:33 PM org.apache.openejb.config.AutoConfig createContainer
+INFO: Auto-creating a container for bean 05e4d392-d0e9-43b7-9723-782021b925f2_com.sap.cloud.sdk.tutorial.AccountServletTest: Container(type=MANAGED, id=Default Managed Container)
+May 02, 2018 1:59:33 PM org.apache.openejb.assembler.classic.Assembler createRecipe
+INFO: Creating Container(id=Default Managed Container)
+May 02, 2018 1:59:33 PM org.apache.openejb.core.managed.SimplePassivater init
+INFO: Using directory C:\firstapp\integration-tests\target\arquillian-working-dir\1 for stateful session passivation
+May 02, 2018 1:59:33 PM org.apache.openejb.config.AppInfoBuilder build
+INFO: Enterprise application "C:\firstapp\integration-tests\target\arquillian-working-dir\1\arquillian-tomee-app-working-dir\0\05e4d392-d0e9-43b7-9723-782021b925f2" loaded.
+May 02, 2018 1:59:33 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Assembling app: C:\firstapp\integration-tests\target\arquillian-working-dir\1\arquillian-tomee-app-working-dir\0\05e4d392-d0e9-43b7-9723-782021b925f2
+May 02, 2018 1:59:33 PM org.apache.openejb.cdi.CdiBuilder initSingleton
+INFO: Existing thread singleton service in SystemInstance(): org.apache.openejb.cdi.ThreadSingletonServiceImpl@15844237
+May 02, 2018 1:59:33 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container is starting...
+May 02, 2018 1:59:33 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [CdiPlugin]
+May 02, 2018 1:59:33 PM org.apache.webbeans.plugins.PluginLoader startUp
+INFO: Adding OpenWebBeansPlugin : [OpenWebBeansJsfPlugin]
+May 02, 2018 1:59:33 PM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+INFO: All injection points were validated successfully.
+May 02, 2018 1:59:33 PM org.apache.openejb.cdi.OpenEJBLifecycle startApplication
+INFO: OpenWebBeans Container has started, it took 157 ms.
+May 02, 2018 1:59:33 PM org.apache.openejb.assembler.classic.Assembler createApplication
+INFO: Deployed Application(path=C:\firstapp\integration-tests\target\arquillian-working-dir\1\arquillian-tomee-app-working-dir\0\05e4d392-d0e9-43b7-9723-782021b925f2)
+May 02, 2018 1:59:34 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully added default listener: com.sap.cloud.sdk.cloudplatform.tenant.TenantRequestContextListener.
+May 02, 2018 1:59:34 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully added default listener: com.sap.cloud.sdk.cloudplatform.connectivity.DestinationsRequestContextListener.
+May 02, 2018 1:59:34 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully added default listener: com.sap.cloud.sdk.cloudplatform.security.user.UserRequestContextListener.
+May 02, 2018 1:59:34 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: No RequestContextFactory configured. Falling back to DefaultRequestContextFactory.
+May 02, 2018 1:59:35 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger warn
+WARNING: Failed to look up implementation of DestinationFacade. Falling back to DefaultDestinationFacade.
+May 02, 2018 1:59:35 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully loaded key store password.
+May 02, 2018 1:59:35 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully loaded key store.
+May 02, 2018 1:59:35 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully initialized private key.
+May 02, 2018 1:59:35 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully initialized public certificate.
+May 02, 2018 1:59:35 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully invalidated 0 entries in 0 caches.
+May 02, 2018 1:59:35 PM com.sap.cloud.sdk.cloudplatform.logging.CloudLoggerFactory$CloudLogger info
+INFO: Successfully invalidated 0 entries in 0 caches.
+]]></system-err>
+  </testcase>
+</testsuite>

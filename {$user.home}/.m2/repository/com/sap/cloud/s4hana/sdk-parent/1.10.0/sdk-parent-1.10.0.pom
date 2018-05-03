@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>SAP S/4HANA Cloud SDK - Parent POM</name>
+    <description>Parent POM of the SAP S/4HANA Cloud SDK.</description>
+
+    <groupId>com.sap.cloud.s4hana</groupId>
+    <artifactId>sdk-parent</artifactId>
+    <version>1.10.0</version>
+    <packaging>pom</packaging>
+
+    <url>https://www.sap.com/s4sdk</url>
+
+    <organization>
+        <name>SAP SE</name>
+        <url>https://www.sap.com</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>SAP DEVELOPER LICENSE AGREEMENT</name>
+            <url>https://tools.hana.ondemand.com/developer-license-3_1.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>SAP</name>
+            <email>s4sdk@sap.com</email>
+            <organization>SAP SE</organization>
+            <organizationUrl>https://www.sap.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection/>
+        <url/>
+    </scm>
+
+    <properties>
+        <maven.version>3.5</maven.version>
+
+        <java.version>1.7</java.version>
+        <java.failOnWarning>true</java.failOnWarning>
+        <java.compilerArgument/>
+
+        <javadoc.opts/>
+
+        <project.rootdir>${project.basedir}</project.rootdir>
+
+        <project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <project.build.generated-sources>${project.build.directory}/generated-sources/java</project.build.generated-sources>
+        <project.build.javaCodeFormatter>${project.rootdir}/codestyle/java_formatter.xml</project.build.javaCodeFormatter>
+
+        <surefire.skipTests>false</surefire.skipTests>
+        <surefire.forkCount>1C</surefire.forkCount>
+        <surefire.argLine/>
+        <surefire.exclude/>
+        <surefire.groups/>
+        <surefire.excludedGroups/>
+        <surefire.maxMemorySize>1024m</surefire.maxMemorySize>
+        <surefire.maxPermSize>512m</surefire.maxPermSize>
+        <surefire.defaultLogLevel>warn</surefire.defaultLogLevel>
+        <surefire.dbMigrateChangeset>2147483647</surefire.dbMigrateChangeset>
+
+        <!-- quality assurance -->
+        <jacoco.destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</jacoco.destFile>
+        <jacoco.outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</jacoco.outputDirectory>
+
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.jacoco.reportPath>${jacoco.destFile}</sonar.jacoco.reportPath>
+        <sonar.language>java</sonar.language>
+        <sonar.javascript.jslint.reportPath>${project.build.directory}/jslint.xml</sonar.javascript.jslint.reportPath>
+
+        <codeAnalysisExclusions/>
+
+        <proxy.host>proxy.wdf.sap.corp</proxy.host>
+        <proxy.port>8080</proxy.port>
+
+        <test.systems>${project.rootdir}/systems</test.systems>
+        <test.credentials>${project.rootdir}/credentials</test.credentials>
+    </properties>
+
+    <prerequisites>
+        <maven>${maven.version}</maven>
+    </prerequisites>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.sap.cloud.s4hana</groupId>
+                <artifactId>sdk-bom</artifactId>
+                <version>1.10.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+
+            <!-- include README in all jar files -->
+            <resource>
+                <directory>${project.rootdir}</directory>
+                <includes>
+                    <include>README</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>3.0.0-M1</version>
+                    <configuration>
+                        <fail>true</fail>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <configuration>
+                                <rules>
+                                    <requireMavenVersion>
+                                        <version>${maven.version}</version>
+                                    </requireMavenVersion>
+
+                                    <requireJavaVersion>
+                                        <version>${java.version}</version>
+                                    </requireJavaVersion>
+
+                                    <banDistributionManagement/>
+                                    <banDuplicatePomDependencyVersions/>
+                                    <dependencyConvergence/>
+                                </rules>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>net.revelc.code</groupId>
+                    <artifactId>formatter-maven-plugin</artifactId>
+                    <version>0.5.2</version>
+                    <configuration>
+                        <configFile>${project.build.javaCodeFormatter}</configFile>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <lineEnding>KEEP</lineEnding>
+                        <directories>
+                            <directory>${project.basedir}/src/main/java</directory>
+                            <directory>${project.basedir}/src/test/java</directory>
+                        </directories>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>process-sources</phase>
+                            <goals>
+                                <goal>format</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.0.2</version>
+                    <configuration>
+                        <failOnWarning>true</failOnWarning>
+                        <failBuild>true</failBuild>
+                        <ignoreNonCompile>true</ignoreNonCompile>
+                        <ignoredUnusedDeclaredDependencies combine.children="append">
+                            <!-- jsr305 annotations are not visible on bytecode level -->
+                            <ignoredUnusedDeclaredDependency>com.google.code.findbugs:jsr305</ignoredUnusedDeclaredDependency>
+                        </ignoredUnusedDeclaredDependencies>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>analyze</id>
+                            <goals>
+                                <goal>analyze-only</goal>
+                            </goals>
+                            <phase>verify</phase>
+                        </execution>
+                        <execution>
+                            <id>analyze-dep-mgt</id>
+                            <goals>
+                                <goal>analyze-dep-mgt</goal>
+                            </goals>
+                            <phase>verify</phase>
+                        </execution>
+                        <execution>
+                            <id>analyze-duplicate</id>
+                            <goals>
+                                <goal>analyze-duplicate</goal>
+                            </goals>
+                            <phase>verify</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.7.0</version>
+                    <configuration>
+                        <fork>false</fork>
+                        <compilerVersion>${java.version}</compilerVersion>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <testSource>${java.version}</testSource>
+                        <testTarget>${java.version}</testTarget>
+                        <showWarnings>true</showWarnings>
+                        <showDeprecation>true</showDeprecation>
+                        <failOnWarning>${java.failOnWarning}</failOnWarning>
+                        <compilerArgument>${java.compilerArgument}</compilerArgument>
+                        <compilerArgs combine.children="append">
+                            <arg>-bootclasspath</arg>
+                            <arg>${java.home}/lib/rt.jar</arg>
+                            <arg>-Xlint:all</arg>
+                            <arg>-Xlint:-processing</arg>
+                        </compilerArgs>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.7</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>3.0.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-plugin-plugin</artifactId>
+                    <version>3.5.1</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <executions>
+                        <execution>
+                            <id>remove-old-artifacts</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>remove-project-artifact</goal>
+                            </goals>
+                            <configuration>
+                                <removeAll>false</removeAll>
+                                <failOnError>false</failOnError>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>add-source</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>add-source</goal>
+                            </goals>
+                            <configuration>
+                                <sources>
+                                    <source>${project.build.generated-sources}</source>
+                                </sources>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>0.8.0</version>
+                    <configuration>
+                        <destFile>${jacoco.destFile}</destFile>
+                        <dataFile>${jacoco.destFile}</dataFile>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>agent-for-ut</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                            <configuration>
+                                <append>true</append>
+                                <destFile>${jacoco.destFile}</destFile>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>pre-unit-test</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>post-unit-test</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>report</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${jacoco.outputDirectory}</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.20.1</version>
+                    <configuration>
+                        <jvm>${java.home}/bin/java</jvm>
+                        <argLine>@{argLine}
+                            -Xmx${surefire.maxMemorySize}
+                            -XX:MaxPermSize=${surefire.maxPermSize}
+                            -Dorg.slf4j.simpleLogger.defaultLogLevel=${surefire.defaultLogLevel}
+                            -Ddb.migrate.changeset=${surefire.dbMigrateChangeset}
+                            -Djava.io.tmpdir=target/arquillian-working-dir/${surefire.forkNumber}/
+                        </argLine>
+                        <skipTests>${surefire.skipTests}</skipTests>
+                        <excludes>
+                            <exclude>${surefire.exclude}</exclude>
+                        </excludes>
+                        <forkCount>${surefire.forkCount}</forkCount>
+                        <reuseForks>false</reuseForks>
+                        <groups>${surefire.groups}</groups>
+                        <excludedGroups>${surefire.excludedGroups}</excludedGroups>
+                        <systemPropertyVariables>
+                            <test.systems>${test.systems}</test.systems>
+                            <test.credentials>${test.credentials}</test.credentials>
+                        </systemPropertyVariables>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <configuration>
+                        <configLocation>codestyle/SAPDefaultProfile-1.4.6-checkstyle.xml</configLocation>
+                        <linkXRef>false</linkXRef>
+                        <includeResources>false</includeResources>
+                        <includeTestResources>false</includeTestResources>
+                        <excludes>${codeAnalysisExclusions}</excludes>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <version>3.0.5</version>
+                    <configuration>
+                        <includeFilterFile>http://nexus.wdf.sap.corp:8081/nexus/content/repositories/build.releases/com/sap/ldi/qi/SAPDefaultProfile/1.4.6/SAPDefaultProfile-1.4.6-findbugs.xml</includeFilterFile>
+                        <effort>Min</effort>
+                        <maxHeap>2048</maxHeap>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>3.8</version>
+                    <configuration>
+                        <rulesets>
+                            <ruleset>http://nexus.wdf.sap.corp:8081/nexus/content/repositories/build.releases/com/sap/ldi/qi/SAPDefaultProfile/1.4.6/SAPDefaultProfile-1.4.6-pmd.xml</ruleset>
+                        </rulesets>
+                        <linkXRef>false</linkXRef>
+                        <targetJdk>${java.version}</targetJdk>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.owasp</groupId>
+                    <artifactId>dependency-check-maven</artifactId>
+                    <version>3.1.0</version>
+                    <configuration>
+                        <failBuildOnCVSS>7</failBuildOnCVSS>
+                        <skipProvidedScope>true</skipProvidedScope>
+                        <skipRuntimeScope>true</skipRuntimeScope>
+                        <skipTestScope>true</skipTestScope>
+                        <jarAnalyzerEnabled>false</jarAnalyzerEnabled>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok-maven-plugin</artifactId>
+                    <version>1.16.20.0</version>
+                    <configuration>
+                        <addOutputDirectory>false</addOutputDirectory>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>delombok</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>delombok</goal>
+                            </goals>
+                            <configuration>
+                                <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+                                <outputDirectory>${project.build.directory}/delombok</outputDirectory>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>test-delombok</id>
+                            <phase>generate-test-sources</phase>
+                            <goals>
+                                <goal>testDelombok</goal>
+                            </goals>
+                            <configuration>
+                                <sourceDirectory>${project.basedir}/src/test/java</sourceDirectory>
+                                <outputDirectory>${project.build.directory}/delombok-test</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <configuration>
+                        <quiet>true</quiet>
+                        <additionalOptions>${javadoc.opts}</additionalOptions>
+                        <show>public</show>
+                        <groups>
+                            <group>
+                                <title>SAP S/4HANA</title>
+                                <packages>com.sap.cloud.sdk.s4hana*</packages>
+                            </group>
+                            <group>
+                                <title>Cloud Platform</title>
+                                <packages>com.sap.cloud.sdk.cloudplatform*</packages>
+                            </group>
+                            <group>
+                                <title>Framework Adaptations</title>
+                                <packages>com.sap.cloud.sdk.frameworks*</packages>
+                            </group>
+                        </groups>
+                        <sourcepath>
+                            ${project.basedir}/target/delombok;
+                            cloudplatform/auditlog/target/delombok;
+                            cloudplatform/auditlog-scp-cf/target/delombok;
+                            cloudplatform/auditlog-scp-neo/target/delombok;
+                            cloudplatform/caching/target/delombok;
+                            cloudplatform/concurrency-scp-neo/target/delombok;
+                            cloudplatform/connectivity/target/delombok;
+                            cloudplatform/connectivity-scp-cf/target/delombok;
+                            cloudplatform/connectivity-scp-neo/target/delombok;
+                            cloudplatform/core/target/delombok;
+                            cloudplatform/core-scp-cf/target/delombok;
+                            cloudplatform/core-scp-neo/target/delombok;
+                            cloudplatform/metering/target/delombok;
+                            cloudplatform/metering-scp-neo/target/delombok;
+                            cloudplatform/security/target/delombok;
+                            cloudplatform/security-scp-cf/target/delombok;
+                            cloudplatform/security-scp-neo/target/delombok;
+                            cloudplatform/servlet/target/delombok;
+                            cloudplatform/tenant/target/delombok;
+                            cloudplatform/tenant-scp-cf/target/delombok;
+                            cloudplatform/tenant-scp-neo/target/delombok;
+                            frameworks/cxf/target/delombok;
+                            frameworks/eclipselink/target/delombok;
+                            frameworks/eclipselink-javaee/target/delombok;
+                            frameworks/hystrix/target/delombok;
+                            frameworks/hystrix-scp-neo/target/delombok;
+                            frameworks/javaee/target/delombok;
+                            frameworks/jaxrs/target/delombok;
+                            frameworks/jaxrs-gson/target/delombok;
+                            frameworks/spring-web/target/delombok;
+                            frameworks/liquibase/target/delombok;
+                            frameworks/liquibase-javaee/target/delombok;
+                            frameworks/togglz/target/delombok;
+                            quality/common/target/delombok;
+                            quality/httpclient-listener/target/delombok;
+                            quality/odata-querylistener/target/delombok;
+                            quality/pmd-rules/target/delombok;
+                            quality/rfc-querylistener/target/delombok;
+                            s4hana/connectivity/target/delombok;
+                            s4hana/core/target/delombok;
+                            s4hana/datamodel-bapi/bapi-api/target/delombok;
+                            s4hana/datamodel-odata/odata-core/target/delombok;
+                            s4hana/datamodel-odata/odata-api/target/delombok;
+                            s4hana/datamodel-odata/odata-generator/target/delombok;
+                            s4hana/datamodel-odata/odata-generator-cli/target/delombok;
+                            s4hana/datamodel-odata/odata-generator-maven-plugin/target/delombok;
+                            s4hana/fluent-result/target/delombok;
+                            s4hana/rfc/target/delombok;
+                            s4hana/signing/target/delombok;
+                            s4hana/testutil/target/delombok;
+                        </sourcepath>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>javadoc-jar</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>javadoc-aggregate</id>
+                            <goals>
+                                <goal>aggregate</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <configuration>
+                        <forceCreation>true</forceCreation>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>2.5</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>net.revelc.code</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>disable-doclint-java8</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+            <properties>
+                <javadoc.opts>-Xdoclint:none</javadoc.opts>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>docs</id>
+            <activation>
+                <property>
+                    <name>docs</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok-maven-plugin</artifactId>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Profile for distributing to all audiences. -->
+        <profile>
+            <id>audience-everyone</id>
+            <activation>
+                <property>
+                    <name>audience</name>
+                    <value>everyone</value>
+                </property>
+            </activation>
+            <build>
+                <pluginManagement>
+                    <plugins>
+                        <!-- Empty sources .jar files for Maven Central. -->
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-source-plugin</artifactId>
+                            <configuration>
+                                <forceCreation>true</forceCreation>
+                                <excludes>
+                                    <exclude>**/com/**</exclude>
+                                    <exclude>**/org/**</exclude>
+                                </excludes>
+                                <archive>
+                                    <manifestEntries>
+                                        <Bundle-ManifestVersion>2</Bundle-ManifestVersion>
+                                        <Bundle-Name>${project.artifactId}</Bundle-Name>
+                                        <Bundle-SymbolicName>${project.artifactId}.source</Bundle-SymbolicName>
+                                        <Bundle-Vendor>${project.organization.name}</Bundle-Vendor>
+                                    </manifestEntries>
+                                </archive>
+                            </configuration>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
+            </build>
+        </profile>
+    </profiles>
+
+    <modules>
+        <module>bom</module>
+
+        <module>cloudplatform</module>
+        <module>frameworks</module>
+        <module>s4hana</module>
+        <module>quality</module>
+        <module>archetypes</module>
+
+        <module>plugins/scp-neo-maven-plugin</module>
+        <module>plugins/pmd-plugin</module>
+
+        <!-- SAP-internal modules -->
+        <module>raml-api-console</module>
+    </modules>
+</project>

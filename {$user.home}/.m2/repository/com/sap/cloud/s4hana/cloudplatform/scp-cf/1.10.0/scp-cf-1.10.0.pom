@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>Cloud Platform - SCP Cloud Foundry</name>
+    <description>Collection of all Cloud platform abstractions for SAP Cloud Platform (Cloud Foundry).</description>
+
+    <artifactId>scp-cf</artifactId>
+
+    <parent>
+        <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+        <artifactId>cloudplatform-parent</artifactId>
+        <version>1.10.0</version>
+    </parent>
+
+    <url>https://www.sap.com/s4sdk</url>
+
+    <organization>
+        <name>SAP SE</name>
+        <url>https://www.sap.com</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>SAP DEVELOPER LICENSE AGREEMENT</name>
+            <url>https://tools.hana.ondemand.com/developer-license-3_1.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>SAP</name>
+            <email>s4sdk@sap.com</email>
+            <organization>SAP SE</organization>
+            <organizationUrl>https://www.sap.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection/>
+        <url/>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+            <artifactId>auditlog-scp-cf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+            <artifactId>caching</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+            <artifactId>core-scp-cf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+            <artifactId>connectivity-scp-cf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+            <artifactId>security-scp-cf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+            <artifactId>servlet</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+            <artifactId>tenant-scp-cf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+            <artifactId>metering</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <configuration>
+                    <usedDependencies>
+                        <usedDependency>com.sap.cloud.s4hana.cloudplatform:auditlog-scp-cf</usedDependency>
+                        <usedDependency>com.sap.cloud.s4hana.cloudplatform:caching</usedDependency>
+                        <usedDependency>com.sap.cloud.s4hana.cloudplatform:core-scp-cf</usedDependency>
+                        <usedDependency>com.sap.cloud.s4hana.cloudplatform:connectivity-scp-cf</usedDependency>
+                        <usedDependency>com.sap.cloud.s4hana.cloudplatform:security-scp-cf</usedDependency>
+                        <usedDependency>com.sap.cloud.s4hana.cloudplatform:servlet</usedDependency>
+                        <usedDependency>com.sap.cloud.s4hana.cloudplatform:tenant-scp-cf</usedDependency>
+                        <usedDependency>com.sap.cloud.s4hana.cloudplatform:metering</usedDependency>
+                    </usedDependencies>
+                </configuration>
+            </plugin>
+
+            <!-- create an empty javadoc jar for Maven Central -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>empty-javadoc-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>javadoc</classifier>
+                            <classesDirectory>${basedir}/javadoc</classesDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

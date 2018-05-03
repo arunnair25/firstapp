@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>Cloud Platform - Parent POM</name>
+    <description>Parent POM for Cloud platform modules.</description>
+
+    <groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+    <artifactId>cloudplatform-parent</artifactId>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>com.sap.cloud.s4hana</groupId>
+        <artifactId>sdk-parent</artifactId>
+        <version>1.10.0</version>
+    </parent>
+
+    <url>https://www.sap.com/s4sdk</url>
+
+    <organization>
+        <name>SAP SE</name>
+        <url>https://www.sap.com</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>SAP DEVELOPER LICENSE AGREEMENT</name>
+            <url>https://tools.hana.ondemand.com/developer-license-3_1.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>SAP</name>
+            <email>s4sdk@sap.com</email>
+            <organization>SAP SE</organization>
+            <organizationUrl>https://www.sap.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection/>
+        <url/>
+    </scm>
+
+    <properties>
+        <project.rootdir>${project.basedir}/../../</project.rootdir>
+    </properties>
+
+    <modules>
+        <module>scp-cf</module>
+        <module>scp-neo</module>
+
+        <module>auditlog</module>
+        <module>auditlog-scp-cf</module>
+        <module>auditlog-scp-neo</module>
+
+        <module>core</module>
+        <module>core-scp-cf</module>
+        <module>core-scp-neo</module>
+
+        <module>caching</module>
+
+        <module>concurrency-scp-neo</module>
+        <module>connectivity</module>
+        <module>connectivity-scp-cf</module>
+        <module>connectivity-scp-neo</module>
+
+        <module>security</module>
+        <module>security-scp-cf</module>
+        <module>security-scp-neo</module>
+
+        <module>servlet</module>
+
+        <module>tenant</module>
+        <module>tenant-scp-cf</module>
+        <module>tenant-scp-neo</module>
+
+        <module>metering</module>
+        <module>metering-scp-neo</module>
+    </modules>
+</project>

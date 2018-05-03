@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>S/4HANA - Data Model - BAPI Parent POM</name>
+    <description>Parent POM of the S/4HANA BAPI Virtual Data Model.</description>
+
+    <artifactId>bapi-parent</artifactId>
+    <groupId>com.sap.cloud.s4hana.datamodel</groupId>
+    <packaging>pom</packaging>
+
+    <parent>
+        <artifactId>s4hana-parent</artifactId>
+        <groupId>com.sap.cloud.s4hana</groupId>
+        <version>1.10.0</version>
+    </parent>
+
+    <url>https://www.sap.com/s4sdk</url>
+
+    <organization>
+        <name>SAP SE</name>
+        <url>https://www.sap.com</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>SAP DEVELOPER LICENSE AGREEMENT</name>
+            <url>https://tools.hana.ondemand.com/developer-license-3_1.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>SAP</name>
+            <email>s4sdk@sap.com</email>
+            <organization>SAP SE</organization>
+            <organizationUrl>https://www.sap.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection/>
+        <url/>
+    </scm>
+
+    <properties>
+        <project.rootdir>${project.basedir}/../../../</project.rootdir>
+    </properties>
+
+    <modules>
+        <module>bapi-api</module>
+        <module>bapi-generator</module>
+    </modules>
+</project>

@@ -1,0 +1,116 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.sap.cloud.servicesdk.prov</groupId>
+		<artifactId>thirdparty</artifactId>
+		<version>1.10.2</version>
+	</parent>
+	<groupId>com.sap.cloud.servicesdk</groupId>
+	<artifactId>odata-v2-lib</artifactId>
+	<name>com.sap.cloud.servicesdk.odata-v2-lib</name>
+	<description>SAP Cloud Platform SDK for service development</description>
+	<url>http://www.sap.com</url>
+	<scm>
+		<connection />
+		<url />
+	</scm>
+	<developers>
+		<developer>
+			<name>SAP SE</name>
+			<organization>SAP SE</organization>
+			<organizationUrl>http://www.sap.com</organizationUrl>
+		</developer>
+	</developers>
+	<licenses>
+		<license>
+			<name>SAP DEVELOPER LICENSE AGREEMENT</name>
+			<url>https://tools.hana.ondemand.com/developer-license-3_1.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>unpack</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.apache.olingo</groupId>
+									<artifactId>olingo-odata2-client-core</artifactId>
+									<version>${olingo.v2.version}</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/classes/</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.apache.olingo</groupId>
+									<artifactId>olingo-odata2-client-api</artifactId>
+									<version>${olingo.v2.version}</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/classes/</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.apache.olingo</groupId>
+									<artifactId>olingo-odata2-api</artifactId>
+									<version>${olingo.v2.version}</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/classes/</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>org.apache.olingo</groupId>
+									<artifactId>olingo-odata2-core</artifactId>
+									<version>${olingo.v2.version}</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/classes/</outputDirectory>
+								</artifactItem>
+								<artifactItem>
+									<groupId>com.sap.cloud.servicesdk</groupId>
+									<artifactId>developer_license</artifactId>
+									<version>${project.version}</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/classes/</outputDirectory>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>empty-javadoc-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<classifier>javadoc</classifier>
+							<forceCreation>true</forceCreation>
+							<includePom>true</includePom>
+							<includes>
+								<include>README</include>
+							</includes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

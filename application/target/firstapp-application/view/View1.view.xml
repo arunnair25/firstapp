@@ -1,0 +1,19 @@
+<mvc:View controllerName="sdk-tutorial-frontend.controller.View1"
+          xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+          displayBlock="true" xmlns="sap.m">
+    <App>
+        <pages>
+            <Page title="Business Partner Explorer">
+                <content>
+                    <!-- Add this between the content tags -->
+                    <List headerText="Business Partners"
+                          items="{businessPartner>/}">
+                        <StandardListItem
+                                title="{businessPartner>LastName}, {businessPartner>FirstName}"
+                                description="ID: {businessPartner>BusinessPartner}"/>
+                    </List>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
